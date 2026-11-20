@@ -1,0 +1,209 @@
+---
+import '../styles/landing.css';
+import Feature from '../components/Feature.astro';
+import logo from '../assets/logo.png';
+import mark from '../assets/logo-mark.png';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const shot = (name: string) => `${base}shots/${name}.webp`;
+const thumb = (name: string) => `${base}shots/${name}-thumb.webp`;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Screensemble — Signage That Takes the Stage.</title>
+		<meta
+			name="description"
+			content="Screensemble is a self-hosted, offline-first digital signage system. Every display always shows an intentional state — no blanks, no launchers, no waiting. Runs on Kodi, managed from one dashboard."
+		/>
+		<link rel="icon" type="image/png" href={`${base}favicon.png`} />
+	</head>
+	<body>
+		<nav class="top-nav">
+			<a href={`${base}docs/`}>Docs</a>
+		</nav>
+		<header class="hero">
+			<img class="hero-icon" src={logo.src} alt="Screensemble logo — a conductor leading a fan of screens" width="148" height="148" />
+			<h1>Screensemble</h1>
+			<p class="hero-eyebrow">Digital signage system</p>
+			<p class="tagline">Signage That Takes the Stage.</p>
+			<p class="sub">
+				An ensemble of screens — self-hosted, offline-first displays that
+				always show an intentional state. No blank walls, no launchers, no
+				waiting screens. Runs on Kodi, conducted from one dashboard.
+			</p>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href={`${base}docs/getting-started/`}>Get started</a>
+				<a class="btn btn-ghost" href="https://github.com/Screensemble">
+					<svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+						<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+					</svg>
+					GitHub
+				</a>
+			</div>
+			<svg class="scroll-cue" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+				<path d="m6 9 6 6 6-6" />
+			</svg>
+		</header>
+
+		<main class="features">
+			<Feature
+				kicker="Always intentional"
+				title="Never a blank, never a launcher"
+				shot={shot('standby')}
+				alt="A display in Screensemble's branded standby state"
+			>
+				The moment playback ends, most signage shows you its seams — a media
+				player home screen, an Android launcher, a black wall. Screensemble
+				shows none of it. Every display always presents a deliberate state:
+				your content, or a branded standby.
+				<ul slot="points">
+					<li>A resident idle window sits beneath playback — the OS and player UI never surface</li>
+					<li>The next image is preloaded during video — zero black on every transition</li>
+					<li>Standby keeps a dim mark on screen while a playlist is empty</li>
+				</ul>
+			</Feature>
+
+			<Feature
+				kicker="One playlist"
+				title="Images, videos and streams — in order"
+				flip
+				shot={shot('promo1')}
+				alt="A display showing a Screensemble playlist slide"
+			>
+				One sequence that treats every media type the same. Images hold for
+				their own durations, videos play end-to-end, live streams sit
+				alongside both. Set order, timing, shuffle and schedules — then walk
+				away.
+				<ul slot="points">
+					<li>Per-item durations, dates, weekdays and time windows</li>
+					<li>Back-to-back videos chain inside the player — the seam is invisible</li>
+					<li>Updates land at the natural end of the current piece, never mid-play</li>
+				</ul>
+			</Feature>
+
+			<Feature
+				kicker="One dashboard"
+				title="Every screen in the fleet"
+				shot={undefined}
+				alt="Screensemble fleet dashboard"
+			>
+				Pair each display once and it registers itself with a hardware-anchored
+				identity — reinstalls and wipes rebind to the same screen instead of
+				minting duplicates. Watch status, push content, manage each device
+				from the server.
+				<ul slot="points">
+					<li>Per-device pairing tokens — a spoofed ID can't hijack a display</li>
+					<li>Health, now-playing and link state, live over a persistent connection</li>
+					<li>A full per-display admin panel mirrors the on-device UI</li>
+				</ul>
+				<div slot="mock" class="mock-fleet">
+					<div class="mock-fleet-head">
+						<img src={mark.src} alt="" />
+						Screensemble — displays
+					</div>
+					<div class="mock-row"><span class="mock-dot on"></span>Gallery North<em>Playing · promo2.png</em></div>
+					<div class="mock-row"><span class="mock-dot on"></span>Gallery South<em>Playing · intro.mp4</em></div>
+					<div class="mock-row"><span class="mock-dot on"></span>Lobby Wall<em>Standby</em></div>
+					<div class="mock-row"><span class="mock-dot off"></span>Studio Annex<em>Last seen 2h ago</em></div>
+				</div>
+			</Feature>
+
+			<Feature
+				kicker="Shared content"
+				title="A library every display draws from"
+				flip
+				alt="Screensemble media library"
+			>
+				The server keeps every file you've pushed, so content is never trapped
+				on one screen. Build named playlists out of library items, assign them
+				to displays, and sync — missing files push down, extras can be pruned,
+				order applies everywhere.
+				<ul slot="points">
+					<li>Upload once, reuse across any display</li>
+					<li>Exact-match sync makes every assigned screen identical</li>
+					<li>SHA-256 verified transfers — corrupt files never go live</li>
+				</ul>
+				<div slot="mock" class="mock-library">
+					<div class="mock-fleet-head">
+						<img src={mark.src} alt="" />
+						Library — Gallery Loop
+					</div>
+					<div class="mock-grid">
+						<div class="mock-tile sync"><img src={thumb('promo1')} alt="" /><span>promo1.png</span></div>
+						<div class="mock-tile sync"><img src={thumb('promo2')} alt="" /><span>promo2.png</span></div>
+						<div class="mock-tile sync"><img src={thumb('promo3')} alt="" /><span>promo3.png</span></div>
+						<div class="mock-tile"><img src={thumb('standby')} alt="" /><span>intro.mp4</span></div>
+						<div class="mock-tile"><img src={thumb('promo1')} alt="" /><span>gallery.mp4</span></div>
+						<div class="mock-tile"><img src={thumb('promo2')} alt="" /><span>tour.mp4</span></div>
+					</div>
+				</div>
+			</Feature>
+
+			<Feature
+				kicker="Offline-proof"
+				title="The show goes on without the network"
+				shot={shot('promo2')}
+				alt="A display continuing to play cached content offline"
+			>
+				Every display caches what it needs locally and keeps playing through
+				server restarts, dead links and dead routers. Content changes queue
+				in the background and land at the next natural boundary — a video's
+				end, an image's timer.
+				<ul slot="points">
+					<li>Local mode runs a full playlist with zero server at all</li>
+					<li>Cache cap with least-recently-used eviction — no manual cleanup</li>
+					<li>A stall watchdog skips frozen video instead of staring at it</li>
+				</ul>
+			</Feature>
+		</main>
+
+		<section class="wrapup reveal">
+			<p>An ensemble of screens, playing in concert.</p>
+			<h2 class="wrapup-title">Ready to raise the curtain?</h2>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href={`${base}docs/getting-started/`}>Get started</a>
+				<a class="btn btn-ghost" href={`${base}docs/`}>Documentation</a>
+			</div>
+		</section>
+
+		<footer class="site-footer">
+			<p>
+				<strong>Screensemble</strong> — <em>An ensemble of screens.</em><br />
+				Free, open-source, self-hosted software. Your content stays on your
+				own hardware.
+			</p>
+			<p>
+				<a href={`${base}docs/getting-started/`}>Get Started</a>
+				&nbsp;·&nbsp;
+				<a href="https://github.com/Screensemble/Screensemble-Server">Server</a>
+				&nbsp;·&nbsp;
+				<a href="https://github.com/Screensemble/Screensemble-Addon">Kodi Player</a>
+				&nbsp;·&nbsp;
+				<a href={`${base}docs/`}>Documentation</a>
+			</p>
+		</footer>
+
+		<script is:inline>
+			document.documentElement.classList.add('js');
+			const io = 'IntersectionObserver' in window
+				? new IntersectionObserver(
+						(entries) => {
+							for (const e of entries) {
+								if (e.isIntersecting) {
+									e.target.classList.add('visible');
+									io.unobserve(e.target);
+								}
+							}
+						},
+						{ threshold: 0.2, rootMargin: '0px 0px -8% 0px' }
+					)
+				: null;
+			document
+				.querySelectorAll('.reveal')
+				.forEach((el) => (io ? io.observe(el) : el.classList.add('visible')));
+		</script>
+	</body>
+</html>

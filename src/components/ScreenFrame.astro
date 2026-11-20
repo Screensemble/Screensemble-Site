@@ -1,0 +1,20 @@
+---
+interface Props {
+	src?: string;
+	alt?: string;
+}
+const { src, alt = 'A display running Screensemble' } = Astro.props;
+---
+
+<div class="screen" aria-hidden={src ? 'false' : 'true'}>
+	<div class="screen-display">
+		{src ? (
+			<img src={src} alt={alt} loading="lazy" decoding="async" />
+		) : (
+			<div class="screen-placeholder">
+				<slot />
+			</div>
+		)}
+	</div>
+	<div class="screen-led"></div>
+</div>

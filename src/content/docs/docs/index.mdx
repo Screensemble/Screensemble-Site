@@ -1,0 +1,32 @@
+---
+title: Screensemble Docs
+description: Documentation for the Screensemble digital signage system — server, Kodi player, and everything in between.
+---
+
+**Screensemble — An ensemble of screens.** Signage That Takes the Stage.
+
+Screensemble is a self-hosted digital signage system built for art galleries,
+studios, and small venues. Every display always shows an intentional state —
+never a blank screen, a media-player home screen, or an OS launcher.
+
+## What's here
+
+- **[How Screensemble works](/docs/concepts/)** — the two components, the
+  operating modes, and the design rules behind them.
+- **[Get started](/docs/getting-started/)** — install the server, install the
+  player, pair a display, run your first playlist.
+- **[Using Screensemble](/docs/using/dashboard/)** — the fleet dashboard,
+  media library, shared playlists, the on-device player UI, and scheduling.
+- **[Reference](/docs/reference/modes/)** — modes, player settings, the server
+  API, deployment, and troubleshooting.
+
+## The two components
+
+| Component | Repo | What it is |
+|---|---|---|
+| **Screensemble Player** | [Screensemble-Addon](https://github.com/Screensemble/Screensemble-Addon) | A Kodi addon that turns any Kodi-capable device into a managed signage display. |
+| **Screensemble Server** | [Screensemble-Server](https://github.com/Screensemble/Screensemble-Server) | A small Node service + dashboard that coordinates, uploads to, and manages the whole fleet. |
+
+You can run a display **without the server** (local mode), a display **with
+the server** (managed mode), or many displays conducted together (controlled
+mode, in development).
