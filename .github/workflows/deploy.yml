@@ -48,11 +48,9 @@ jobs:
           mkdir -p dist/setup
           gh release download --repo Screensemble/Performer \
             --pattern 'repository.screensemble-*.zip' \
-            --pattern 'script.screensemble-*.zip' \
             --clobber --dir dist/setup
           cd dist/setup
           mv repository.screensemble-*.zip repository.screensemble.zip
-          mv script.screensemble-*.zip script.screensemble.zip
           ls -la
 
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3

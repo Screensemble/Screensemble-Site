@@ -6,26 +6,21 @@ description: Install the Screensemble Kodi addon on a display device.
 The performer is a Kodi addon (`script.screensemble`). Any device running
 Kodi 21+ (Omega) works — Android TV boxes, PCs, Raspberry Pi.
 
-## Install via the repository addon (recommended)
+## Install the repository addon
 
-The fastest path needs nothing but the remote: in Kodi,
-**Settings → File manager → Add source** → enter
-`https://screensemble.com/setup/` → then **Add-ons → Install from zip
-file** → pick that source → `repository.screensemble.zip`. Finish with
-**Install from repository → Screensemble → Services → Screensemble
-Performer**.
+The performer installs through the Screensemble Repository — that's what
+makes updates arrive as normal Kodi updates with nothing to sideload.
 
-Or sideload: download `repository.screensemble-<version>.zip` from the
+1. In Kodi: **Settings → File manager → Add source** → enter
+   `https://screensemble.com/setup/`.
+2. **Add-ons → Install from zip file** → pick that source →
+   `repository.screensemble.zip`.
+3. **Install from repository → Screensemble → Services → Screensemble
+   Performer**.
+
+The repository zip is also attached to the
 [latest release](https://github.com/Screensemble/Performer/releases/latest)
-and use **Install from zip file**.
-
-The repository addon makes every future release arrive as a normal Kodi
-addon update.
-
-## Install the zip directly
-
-Download `script.screensemble-<version>.zip` from the same release and use
-**Install from zip file** — you just won't get automatic updates.
+if you prefer to sideload it from USB.
 
 ## First launch
 
