@@ -62,3 +62,19 @@ ownership of volumes created by older images) and has a Docker
 Pull the new image tag and recreate the container; data survives in the
 volume. Display players update through the Kodi repository addon — install
 it once and each release arrives as a normal addon update.
+
+## Addon updates without internet
+
+The server can host the player addon itself. Build the repo index with
+`tools/build_repo.py` (or grab the release artifacts) into `data/repo/`,
+then on each display's admin page use **Addon updates → Download the
+update-repo installer**. Installing that zip once points Kodi at
+`/repo/` on this server with the display's own token — future addon
+versions arrive as normal Kodi updates, no internet needed.
+
+## TLS
+
+Set `TLS_CERT` and `TLS_KEY` to serve HTTPS + `wss://` on the player
+socket. Displays dial `wss://` automatically from an `https://` server
+address; enable **Skip TLS verification** in the display's Security
+settings when using a self-signed certificate (media pulls honor it too).
