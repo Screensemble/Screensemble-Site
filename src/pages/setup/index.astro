@@ -46,7 +46,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 			}
 			.card h2 { font-size: 1.05rem; margin-bottom: .6rem; }
 			.card p { color: var(--dim); font-size: .92rem; }
-			a.zip {
+			a[href$=".zip"] {
 				display: block;
 				margin: .9rem 0 .4rem;
 				padding: .8rem 1.1rem;
@@ -57,7 +57,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 				text-decoration: none;
 				border-radius: 8px;
 			}
-			a.alt { color: var(--accent); font-size: .92rem; }
+			a:not([href$=".zip"]) { color: var(--accent); font-size: .92rem; }
 			code {
 				background: #0b0f16;
 				border: 1px solid var(--line);
@@ -88,7 +88,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 					→ then Add-ons → <em>Install from zip file</em> → pick this source →
 					the repository zip. Or download it here:
 				</p>
-				<a class="zip" href="repository.screensemble.zip">repository.screensemble.zip</a>
+				<a href="repository.screensemble.zip">repository.screensemble.zip</a>
 				<p>Latest version from the Performer releases.</p>
 			</div>
 
@@ -102,7 +102,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 				</p>
 				<p style="margin-top:.8rem">
 					No repository? Direct install:
-					<a class="alt" href="script.screensemble.zip">script.screensemble.zip</a>
+					<a href="script.screensemble.zip">script.screensemble.zip</a>
 				</p>
 			</div>
 
@@ -114,7 +114,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 					<li>Confirm on the TV. The display pulls its content and stays in sync.</li>
 				</ol>
 				<p style="margin-top:.8rem">
-					<a class="alt" href={`${base}docs/getting-started/`}>Full setup guide →</a>
+					<a href={`${base}docs/getting-started/`} class="alt">Full setup guide →</a>
 				</p>
 			</div>
 		</main>
