@@ -15,8 +15,23 @@ the public endpoints below requires a signed-in dashboard session.
 | `POST /api/pair/request` | Display presents a one-time pairing code; returns a `pairing_id`. |
 | `POST /api/pair/accept` / `POST /api/pair/decline` | Display reports the on-TV answer; accept returns its `player_id` and device token. |
 | `GET /api/library/file/:name?token=` · `GET /api/uploads/file/:id?token=` | Media pulls, authorized by a paired display's token. |
-| `POST /api/triggers/:trigger_id` | Hardware trigger (bearer token). Dispatch is still in progress. |
+| `POST /api/triggers/:trigger_id` | Hardware trigger fire (bearer: `TRIGGER_TOKEN` or any paired display token). |
 | `/api/auth/*` | Sign-in and sessions (no public sign-up). |
+
+## Conductor and triggers
+
+| Endpoint | Purpose |
+|---|---|
+| `POST /api/conductor/arm` | Probe display clocks, stage item 1 on every connected display (or `{"players": [...]}`). |
+| `POST /api/conductor/go` | Release staged displays on one shared instant — `{"policy": "all"\|"min"\|"any", "min_ready": N, "lead_ms": 500}`. |
+| `GET /api/conductor` | Session state: per-display armed/online + clock probe RTT. |
+| `GET /api/triggers` · `PUT` / `DELETE /api/triggers/:id` | Trigger map management (dashboard session required). |
+
+Each trigger maps an id to `{action: arm|go|sync|restart, players?,
+cooldown_ms, retrigger: ignore|restart|queue, lead_ms}` in
+`data/triggers.json`. `sync` arms and releases on one deadline in a
+single call. The ESP32 firmware lives under `firmware/esp32-trigger/` in
+the server repository.
 
 ## Displays and pairing
 
@@ -57,5 +72,7 @@ the public endpoints below requires a signed-in dashboard session.
 The first message is a hello with the display's hardware ID and device
 token; unpaired displays get `unauthorized` and are disconnected. After
 that it carries status reports, commands, media operations, `pull_file`
-jobs (URL + SHA-256), and conductor messages. The server pings every
+jobs (URL + SHA-256), `clock_probe`/`clock_pong` time sync, and
+conductor arm/go commands (`go` carries `at_mono`, the release deadline
+in the display's own monotonic clock). The server pings every
 30 seconds and drops displays that stop answering.

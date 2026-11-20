@@ -25,9 +25,24 @@ no Kodi restart required.
 ## Controlled
 
 Managed, plus a conductor channel for coordinated multi-display cues —
-Arm/Go staging for synchronized performances across screens. This is the
-newest layer and still in development; managed mode remains the stable
-foundation.
+Arm/Go staging for synchronized performances across screens.
+
+**Arm** probes each display's clock (lowest-RTT sample wins) and stages
+playlist item 1: videos pause on their first frame, images show
+statically. **Go** then converts one release instant into every
+display's *own* monotonic clock (`at_mono`), so all displays start
+together regardless of when each `go` message lands — typically within a
+frame or two on a healthy LAN. Release policies: all staged, at least
+N, or proceed anyway, with a configurable lead time (500 ms default).
+The Conductor tab shows live per-display readiness and probe RTT; the
+server keeps re-probing every 30 s while a session stays armed.
+
+Hardware triggers (e.g. the bundled ESP32 sketch) fire
+`POST /api/triggers/:id` — the server owns the mapping, cooldown, and
+retrigger policy, so a sensor can arm a room, release a synced go, or
+restart a show without reconfiguring the device.
+
+This is the newest layer; managed mode remains the stable foundation.
 
 ## Moving between modes
 
