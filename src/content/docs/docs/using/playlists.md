@@ -22,7 +22,7 @@ content — the ensemble playing in concert.
 
 ## Boundary-safe by design
 
-Sync never interrupts what's on screen. The server sends a deferred update:
+Sync never interrupts what's on screen. The conductor sends a deferred update:
 pushes finish transferring first, the update flag queues after the batch
 settles, and the new order applies at the next natural boundary — a video's
 end or an image's timer expiry. An explicit *Restart* is still immediate

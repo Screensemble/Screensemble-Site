@@ -3,11 +3,11 @@ title: Your first playlist
 description: Upload content, order a sequence, and put it on a display.
 ---
 
-1. Open the server **library** (`/library.html`) and upload your media —
-   images and videos. Everything lands in the permanent server library.
+1. Open the conductor **library** (`/library.html`) and upload your media —
+   images and videos. Everything lands in the permanent conductor library.
 2. Create a **playlist**, add items in the order you want, and assign your
    paired display.
-3. Click **Sync**. The server pushes any missing files to the display
+3. Click **Sync**. The conductor pushes any missing files to the display
    (SHA-256 verified), applies the order, and the change lands at the next
    natural content boundary.
 4. Watch it run — videos chain seamlessly, images hold for their durations,

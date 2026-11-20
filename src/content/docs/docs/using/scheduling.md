@@ -33,5 +33,5 @@ sequence item for ordering and scheduling.
 
 The engine stages the *next* image under the current video before it ends,
 so image reveals are instant. Back-to-back videos chain inside Kodi's
-player for an invisible ~100 ms hop. An image holds through the load gap
+performer for an invisible ~100 ms hop. An image holds through the load gap
 when the next item is a video.

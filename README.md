@@ -4,9 +4,9 @@
   <p><strong>Signage That Takes the Stage.</strong></p>
   <p><em>An ensemble of screens.</em></p>
   <p>
-    <a href="https://github.com/Screensemble/Screensemble-Site/releases/latest"><img src="https://img.shields.io/github/v/release/Screensemble/Screensemble-Site" alt="Latest release" /></a>
-    <a href="https://github.com/Screensemble/Screensemble-Site/actions/workflows/ci.yml"><img src="https://github.com/Screensemble/Screensemble-Site/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-    <a href="https://github.com/Screensemble/Screensemble-Site/actions/workflows/deploy.yml"><img src="https://github.com/Screensemble/Screensemble-Site/actions/workflows/deploy.yml/badge.svg" alt="Deploy" /></a>
+    <a href="https://github.com/Screensemble/Site/releases/latest"><img src="https://img.shields.io/github/v/release/Screensemble/Site" alt="Latest release" /></a>
+    <a href="https://github.com/Screensemble/Site/actions/workflows/ci.yml"><img src="https://github.com/Screensemble/Site/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+    <a href="https://github.com/Screensemble/Site/actions/workflows/deploy.yml"><img src="https://github.com/Screensemble/Site/actions/workflows/deploy.yml/badge.svg" alt="Deploy" /></a>
   </p>
 </div>
 
@@ -26,7 +26,7 @@ offline-first digital signage system. Live at **https://screensemble.com**.
 
 ```bash
 npm ci
-npm run dev       # local dev server
+npm run dev       # local dev conductor
 npm run build     # static build → dist/
 npm run preview   # serve the build locally
 ```
@@ -41,8 +41,8 @@ every push to `main`; `public/CNAME` pins the custom domain. CI
 
 ## Related
 
-- [Screensemble Player](../Screensemble-Addon) — the Kodi addon
-- [Screensemble Server](../Screensemble-Server) — the fleet server
+- [Screensemble Performer](../Performer) — the Kodi addon
+- [Screensemble Conductor](../Conductor) — the fleet conductor
 
 ## License
 

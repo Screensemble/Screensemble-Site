@@ -11,21 +11,21 @@ delay on that media.
 
 **The display went offline but kept playing.**
 That's by design. Content is cached locally; the playlist runs without the
-server. It rejoins the fleet when the link returns.
+conductor. It rejoins the fleet when the link returns.
 
 **A reinstall created a duplicate display.**
 It shouldn't — identity is hardware-anchored. Duplicates mean the device
 reported a different MAC-derived ID (e.g. swapped NIC, or a VM). Remove the
-stale registry entry from the dashboard.
+stale registry entry from the Control Room.
 
-**Pairing request never appears on the dashboard.**
-Check that the display can reach `http://<server>:<port>/api/info` — the
+**Pairing request never appears on the Control Room.**
+Check that the display can reach `http://<conductor>:<port>/api/info` — the
 link is outbound from the display, so firewalls must allow it out. A
 *pairing code is invalid or expired* error means the code was already used
-or is over 10 minutes old — reload the server's Pair page for a new one.
+or is over 10 minutes old — reload the conductor's Pair page for a new one.
 
-**A display shows "unpaired" or the server logs `player rejected`.**
-Only displays paired through the Pair page are allowed. Reset the player
+**A display shows "unpaired" or the conductor logs `performer rejected`.**
+Only displays paired through the Pair page are allowed. Reset the performer
 in its addon settings and pair it again.
 
 **A push finished but nothing changed on screen.**
@@ -33,9 +33,9 @@ Also by design — updates land at the next natural content boundary (video
 end or image timer). Use an explicit *Restart* for an immediate cut.
 
 **Can displays be on different networks/VLANs?**
-Yes — they only need outbound access to the server port. mDNS isn't used;
-displays are configured with the server address directly.
+Yes — they only need outbound access to the conductor port. mDNS isn't used;
+displays are configured with the conductor address directly.
 
 **Where does media live?**
 On the display: `special://profile/screensemble_media/` (or the configured
-folder). On the server: `data/library/` inside the data volume.
+folder). On the conductor: `data/library/` inside the data volume.

@@ -1,31 +1,31 @@
 ---
 title: Get started
-description: Choose how to install Screensemble — player only, or player plus server.
+description: Choose how to install Screensemble — performer only, or performer plus conductor.
 ---
 
 Screensemble's two parts can be adopted independently. Pick your path:
 
 ## I just want one reliable display
 
-Install the **[player](/docs/getting-started/player/)** on a Kodi device and
-use **Local mode**. No server needed — you'll manage the playlist from the
+Install the **[performer](/docs/getting-started/performer/)** on a Kodi device and
+use **Local mode**. No conductor needed — you'll manage the playlist from the
 on-TV UI, the built-in web admin, or a phone on the same network.
 
 ## I want a fleet
 
-1. Install the **[server](/docs/getting-started/server/)** on any always-on
+1. Install the **[conductor](/docs/getting-started/conductor/)** on any always-on
    host (Docker is easiest — one container, no database).
-2. Install the **[player](/docs/getting-started/player/)** on each display.
+2. Install the **[performer](/docs/getting-started/performer/)** on each display.
 3. **[Pair each display](/docs/getting-started/pairing/)** — scan its QR
-   from the server's Pair page and confirm on the TV; it becomes managed.
+   from the conductor's Pair page and confirm on the TV; it becomes managed.
 4. Build a **[shared playlist](/docs/getting-started/first-display/)** and
    push it to every screen.
 
 ## Requirements
 
-- **Player:** any device that runs Kodi 21+ (Omega) — Android TV boxes,
+- **Performer:** any device that runs Kodi 21+ (Omega) — Android TV boxes,
   Windows/Linux PCs, Raspberry Pi, LibreELEC.
-- **Server:** Node.js 20+ or Docker. One container, no database, no
+- **Conductor:** Node.js 20+ or Docker. One container, no database, no
   external services.
-- **Network:** displays need outbound HTTP/WebSocket access to the server
-  (default port `8080`). The server never connects to the displays.
+- **Network:** displays need outbound HTTP/WebSocket access to the conductor
+  (default port `8080`). The conductor never connects to the displays.

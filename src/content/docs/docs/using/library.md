@@ -1,15 +1,15 @@
 ---
 title: Media library
-description: The server's permanent media store — upload once, use on any display.
+description: The conductor's permanent media store — upload once, use on any display.
 ---
 
 Every upload — whether pushed to a specific display or added directly —
-is stored permanently on the server under `data/library/`. Content is
+is stored permanently on the conductor under `data/library/`. Content is
 never trapped on one screen.
 
 ## The library page
 
-`http://<server>:8080/library.html`
+`http://<conductor>:8080/library.html`
 
 ![Media library with upload, push-to-displays, library items, and shared playlists](/shots/docs/library-desktop.webp)
 
@@ -29,7 +29,7 @@ the active file atomically.
 ## Housekeeping on displays
 
 In managed mode the display keeps a cache manifest and enforces a size cap
-(the `cache_max_mb` player setting, default 4 GB). Files no longer
+(the `cache_max_mb` performer setting, default 4 GB). Files no longer
 referenced by the playlist evict least-recently-used first; content the
 sequence needs is never removed. The local media folder in Local mode is
 never auto-evicted.
