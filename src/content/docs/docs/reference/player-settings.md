@@ -9,7 +9,7 @@ Settings live in Kodi's addon settings for **Screensemble Player**
 | Setting | Default | Purpose |
 |---|---|---|
 | `server_url` | — | Screensemble server address; empty means Local mode. |
-| `server_auth_token` | — | Per-device token minted at pairing; auto-generated if empty. |
+| `server_auth_token` | — | Per-device token issued by the server at pairing. Set automatically; the display won't connect without it. |
 | `media_folder` | profile media dir | Where playlist files live. Defaults to `special://profile/screensemble_media/`; a Kodi filesystem picker is available in the web UI. |
 | `cache_max_mb` | `4096` | Managed-mode cache cap. Orphaned files evict least-recently-used first; playlist files are never removed. |
 | `idle_promos` | on | Promo slides while the playlist is empty (Local mode); managed displays show standby. |

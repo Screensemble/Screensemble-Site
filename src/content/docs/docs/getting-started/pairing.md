@@ -4,30 +4,45 @@ description: Connect a display to the server and switch it to managed mode.
 ---
 
 Pairing registers the display with the server and switches it to managed
-mode — no restart needed; the server link starts immediately.
+mode — no restart needed; the server link starts immediately. **Only
+displays paired this way can connect** — the server refuses every other
+device, including one that knows a display's hardware ID.
 
-## Pair via QR or code
+## Pair via QR
 
-1. On the display, run Screensemble Player and choose **Pair** in the setup
-   wizard (or open the web admin's pairing page).
-2. Enter the server address, or scan the QR code with a phone on the same
-   network.
-3. A pairing request appears on the server dashboard — click **Accept**.
-4. The display flips to managed mode and registers itself.
+1. Sign in to the server dashboard and open **Pairing → pairing page**
+   (`/pair.html`) on a phone. It shows a **one-time pairing code**
+   (single use, valid 10 minutes).
+2. On the display, run Screensemble Player and choose server mode in the
+   setup wizard — it shows a QR code.
+3. Tap **Scan display QR code** and point the phone at the TV.
+4. The TV asks *"Allow this server to manage the display?"* with the
+   server's name — press **Pair** on the remote.
+5. The display receives its device token, flips to managed mode, and
+   appears online on the dashboard.
 
-Declined requests are dismissed on the dashboard; the display can re-request.
+![Server Pair page on a phone, showing the server address and a one-time pairing code](/shots/docs/pair-phone.webp)
+
+## Pair from the display's phone setup page
+
+No camera? Open the display's setup page on a phone (the link under its QR
+code), choose server mode, enter the server address and the pairing code
+from the server's Pair page, and tap **Pair**. Confirm on the TV as above.
 
 ## What pairing does
 
-- Generates a **hardware-anchored display ID** — a MAC-derived ID plus a
-  Kodi instance UUID. Reinstalls and data wipes rebind to the same display.
-- Mints a **per-device auth token**, stored on both sides. The server
-  verifies it on every connection, so a forged hardware ID can't take over
-  a registry entry.
-- Displays paired before tokens existed mint one automatically on first
-  connect, and the server binds it (trust-on-first-use).
+- Checks both sides: the server must identify as a Screensemble server and
+  each side's minimum version must be met before the TV is asked.
+- Anchors the display to a **hardware-derived ID** (salted hash of the
+  primary MAC), so reinstalls and data wipes rebind to the same entry.
+- The server issues a random **per-device token** after the on-TV
+  confirm. It is verified on every connection and media download; a
+  display without the right token is rejected.
 
-## Unpairing
+## Re-pairing and unpairing
 
-Clear the server address in the player settings (or from the server's
-display page) — the display drops back to Local mode and keeps its content.
+- To move a display to another server, or after removing it from the
+  dashboard, reset the player in its addon settings and pair again.
+- Removing a display on the dashboard disconnects it and invalidates its
+  token. Clearing the server address in the player settings drops it back
+  to Local mode; it keeps its content.

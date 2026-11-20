@@ -47,13 +47,14 @@ Details in [Operating modes](/docs/reference/modes/).
   permanent library (`data/library/`), ready to reuse on other displays.
 - **Playlist state on the display** — `media.json` holds the ordered
   sequence, per-item durations and schedules, shuffle, and settings.
-- **Registry on the server** — `data/registry.json` holds display identity,
+- **Registry on the server** — `data/players.json` holds display identity,
   tokens, and status; `data/playlists.json` holds the shared playlists.
 
 ## Identity and security
 
 A display's identity is anchored to hardware (MAC-derived ID plus a Kodi
 instance UUID), so reinstalls and data wipes rebind to the same display
-instead of creating duplicates. Pairing mints a per-device auth token;
-the server verifies it on every connect — a spoofed hardware ID can't
-hijack a registry entry.
+instead of creating duplicates. Only displays paired with a one-time code
+from the dashboard and confirmed on the TV are admitted; the server then
+issues a per-device token and verifies it on every connect and download —
+a spoofed hardware ID can't join or hijack a registry entry.

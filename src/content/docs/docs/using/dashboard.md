@@ -6,6 +6,12 @@ description: The server dashboard — every display, its status, and remote cont
 The dashboard at `http://<server>:8080/` is the fleet overview: every
 registered display with its live status.
 
+![Fleet dashboard listing three online displays with version, last seen, now showing, and free space](/shots/docs/dashboard-desktop.webp)
+
+On a phone the same page stacks into a narrow layout:
+
+![Fleet dashboard on a phone](/shots/docs/dashboard-phone.webp)
+
 ## What you see
 
 - **Online / offline** — live WebSocket link state plus last-seen time.
@@ -16,6 +22,8 @@ registered display with its live status.
 
 Click a display for its own admin page — the same capabilities as the
 on-device web admin, served by the server:
+
+![Per-display admin page showing the playlist with thumbnails, durations, and controls](/shots/docs/display-desktop.webp)
 
 - Playlist view with reorder, enable/disable, durations, and schedules.
 - Content upload to that display (files also land in the server library).

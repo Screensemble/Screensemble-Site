@@ -11,6 +11,8 @@ never trapped on one screen.
 
 `http://<server>:8080/library.html`
 
+![Media library with upload, push-to-displays, library items, and shared playlists](/shots/docs/library-desktop.webp)
+
 - Browse all stored items with thumbnails.
 - **Upload** new media directly.
 - **Push** selected items to selected displays — multi-select works on
