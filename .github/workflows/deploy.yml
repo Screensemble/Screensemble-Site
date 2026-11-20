@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Performer releases ping this so /setup/ serves new zips immediately.
+  repository_dispatch:
+    types: [performer-release]
   # Keep the /setup/ zips fresh even when the site itself hasn't changed.
   schedule:
     - cron: '23 5 * * *'
