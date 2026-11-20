@@ -16,8 +16,8 @@ on-TV UI, the built-in web admin, or a phone on the same network.
 1. Install the **[server](/docs/getting-started/server/)** on any always-on
    host (Docker is easiest — one container, no database).
 2. Install the **[player](/docs/getting-started/player/)** on each display.
-3. **[Pair each display](/docs/getting-started/pairing/)** — approve it from
-   the dashboard and it becomes managed.
+3. **[Pair each display](/docs/getting-started/pairing/)** — scan its QR
+   from the server's Pair page and confirm on the TV; it becomes managed.
 4. Build a **[shared playlist](/docs/getting-started/first-display/)** and
    push it to every screen.
 

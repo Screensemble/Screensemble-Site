@@ -20,7 +20,13 @@ stale registry entry from the dashboard.
 
 **Pairing request never appears on the dashboard.**
 Check that the display can reach `http://<server>:<port>/api/info` — the
-link is outbound from the display, so firewalls must allow it out.
+link is outbound from the display, so firewalls must allow it out. A
+*pairing code is invalid or expired* error means the code was already used
+or is over 10 minutes old — reload the server's Pair page for a new one.
+
+**A display shows "unpaired" or the server logs `player rejected`.**
+Only displays paired through the Pair page are allowed. Reset the player
+in its addon settings and pair it again.
 
 **A push finished but nothing changed on screen.**
 Also by design — updates land at the next natural content boundary (video

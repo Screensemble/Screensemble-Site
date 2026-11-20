@@ -33,6 +33,6 @@ foundation.
 
 | Change | How |
 |---|---|
-| Local → Managed | Pair the display and approve it on the server. |
+| Local → Managed | Pair the display from the server's Pair page and confirm on the TV. |
 | Managed → Local | Clear the server address / unpair — content stays. |
 | Managed → Controlled | Conductor arm — requires the server conductor channel. |
