@@ -25,6 +25,14 @@ Mount a volume at `/app/data` — it holds everything that matters:
 - `data/library/` — the permanent media store.
 - `data/playlists.json` — shared playlists and assignments.
 
+## Sign-in
+
+The dashboard requires a login (Better Auth, users stored in `data/auth.db`
+inside the volume). First login is `screensemble` / `screensemble` — a
+password change is forced immediately. Manage users at `/users.html`.
+Displays and media pulls are unaffected — they authenticate with their
+pairing token, not a user account.
+
 ## Networking
 
 - Displays connect **outbound** to the server port — the server needs no
