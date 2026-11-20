@@ -8,11 +8,16 @@ Kodi 21+ (Omega) works — Android TV boxes, PCs, Raspberry Pi.
 
 ## Install via the repository addon (recommended)
 
-1. From the
-   [latest release](https://github.com/Screensemble/Performer/releases/latest),
-   download `repository.screensemble-<version>.zip`.
-2. In Kodi: **Settings → Add-ons → Install from zip file** → pick the repo zip.
-3. **Install from repository → Screensemble → Services → Screensemble Performer**.
+The fastest path needs nothing but the remote: in Kodi,
+**Settings → File manager → Add source** → enter
+`https://screensemble.com/setup/` → then **Add-ons → Install from zip
+file** → pick that source → `repository.screensemble.zip`. Finish with
+**Install from repository → Screensemble → Services → Screensemble
+Performer**.
+
+Or sideload: download `repository.screensemble-<version>.zip` from the
+[latest release](https://github.com/Screensemble/Performer/releases/latest)
+and use **Install from zip file**.
 
 The repository addon makes every future release arrive as a normal Kodi
 addon update.

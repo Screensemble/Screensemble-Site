@@ -1,0 +1,122 @@
+---
+// Setup landing — works two ways:
+//  1. Browsers get a branded install guide.
+//  2. Kodi's "Add source" file browser parses this page's <a href> links as a
+//     directory listing, so the repo installer zip is one click away.
+// The deploy workflow drops the latest release zips next to this page under
+// the stable names linked below.
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Setup — Screensemble</title>
+		<link rel="icon" type="image/png" href={`${base}favicon.png`} />
+		<style>
+			:root {
+				--bg: #101318;
+				--panel: #181d26;
+				--line: #2a3140;
+				--text: #e8ecf4;
+				--dim: #9aa5b8;
+				--accent: #6ea8fe;
+			}
+			* { box-sizing: border-box; margin: 0; }
+			body {
+				background: var(--bg);
+				color: var(--text);
+				font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+				display: grid;
+				place-items: center;
+				min-height: 100vh;
+				padding: 2rem;
+			}
+			main { max-width: 560px; width: 100%; }
+			h1 { font-size: 1.6rem; margin-bottom: .35rem; }
+			.sub { color: var(--dim); margin-bottom: 2rem; }
+			.card {
+				background: var(--panel);
+				border: 1px solid var(--line);
+				border-radius: 12px;
+				padding: 1.4rem 1.6rem;
+				margin-bottom: 1rem;
+			}
+			.card h2 { font-size: 1.05rem; margin-bottom: .6rem; }
+			.card p { color: var(--dim); font-size: .92rem; }
+			a.zip {
+				display: block;
+				margin: .9rem 0 .4rem;
+				padding: .8rem 1.1rem;
+				background: var(--accent);
+				color: #0b0f16;
+				font-weight: 600;
+				text-align: center;
+				text-decoration: none;
+				border-radius: 8px;
+			}
+			a.alt { color: var(--accent); font-size: .92rem; }
+			code {
+				background: #0b0f16;
+				border: 1px solid var(--line);
+				border-radius: 6px;
+				padding: .1rem .45rem;
+				font-size: .88em;
+			}
+			ol { padding-left: 1.3rem; color: var(--dim); font-size: .92rem; }
+			ol li { margin: .35rem 0; }
+			.url {
+				display: block;
+				text-align: center;
+				font-size: 1.05rem;
+				margin: .6rem 0;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>Set up a Screensemble display</h1>
+			<p class="sub">Two minutes: install the repository, then the performer.</p>
+
+			<div class="card">
+				<h2>1 · Install the Screensemble repository</h2>
+				<p>
+					On Kodi: Settings → File manager → Add source → enter
+					<code class="url">https://screensemble.com/setup/</code>
+					→ then Add-ons → <em>Install from zip file</em> → pick this source →
+					the repository zip. Or download it here:
+				</p>
+				<a class="zip" href="repository.screensemble.zip">repository.screensemble.zip</a>
+				<p>Latest version from the Performer releases.</p>
+			</div>
+
+			<div class="card">
+				<h2>2 · Install the performer</h2>
+				<p>
+					Add-ons → <em>Install from repository</em> →
+					<strong>Screensemble Repository</strong> → Program add-ons →
+					<strong>Screensemble Performer</strong>. Future releases arrive as
+					normal Kodi updates — nothing to sideload again.
+				</p>
+				<p style="margin-top:.8rem">
+					No repository? Direct install:
+					<a class="alt" href="script.screensemble.zip">script.screensemble.zip</a>
+				</p>
+			</div>
+
+			<div class="card">
+				<h2>3 · Pair with your conductor</h2>
+				<ol>
+					<li>Open the conductor's <strong>Pair</strong> page — it shows a code.</li>
+					<li>Open the performer addon — it shows a QR/confirm prompt.</li>
+					<li>Confirm on the TV. The display pulls its content and stays in sync.</li>
+				</ol>
+				<p style="margin-top:.8rem">
+					<a class="alt" href={`${base}docs/getting-started/`}>Full setup guide →</a>
+				</p>
+			</div>
+		</main>
+	</body>
+</html>

@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Keep the /setup/ zips fresh even when the site itself hasn't changed.
+  schedule:
+    - cron: '23 5 * * *'
 
 permissions:
   contents: read
@@ -32,6 +35,22 @@ jobs:
         env:
           SITE_URL: https://screensemble.com
           BASE_PATH: /
+
+      # The setup page links stable names; drop the latest Performer release
+      # assets next to it so Kodi's source browser sees them.
+      - name: Fetch installer zips for /setup/
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p dist/setup
+          gh release download --repo Screensemble/Performer \
+            --pattern 'repository.screensemble-*.zip' \
+            --pattern 'script.screensemble-*.zip' \
+            --clobber --dir dist/setup
+          cd dist/setup
+          mv repository.screensemble-*.zip repository.screensemble.zip
+          mv script.screensemble-*.zip script.screensemble.zip
+          ls -la
 
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
