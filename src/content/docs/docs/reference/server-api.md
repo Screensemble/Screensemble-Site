@@ -58,6 +58,7 @@ the server repository.
 | `POST` / `DELETE /api/playlists/:name` | Create or update / delete a playlist. |
 | `POST /api/playlists/:name/sync` | Sync now — push missing files, apply order, optional prune. |
 | `GET /api/uploads` | Upload and push job progress. |
+| `GET` / `POST /api/library/:name/frame` | Frozen-frame extraction (ffmpeg, server-side) — preview at `?t=` / save the frame as a library image. |
 
 ## Users
 
